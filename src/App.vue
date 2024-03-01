@@ -12,23 +12,19 @@ import BlogPost from './components/BlogPost.vue'
     <br>
     <BlogPost 
       title="Post" 
-      id="1" 
+      :id="1" 
       body="Incididunt ea id sunt consequat 1"
-      colorText="primary"
     />
 
     <BlogPost 
       title="Post" 
-      id="2" 
+      :id="2" 
       body="Incididunt ea id sunt consequat 2" 
-      colorText="secondary"
     />
 
     <BlogPost 
       title="Post" 
-      id="3" 
-      body="Incididunt ea id sunt consequat 3" 
-      colorText="success"
+      :id="3"  
     />
 
 </div>
