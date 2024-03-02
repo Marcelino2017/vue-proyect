@@ -11,6 +11,8 @@ defineProps({
     }
 })
 
+const emit = defineEmits(['changeFavorito'])
+
 </script>
 
 <template>
@@ -23,7 +25,7 @@ defineProps({
             <p>{{ body }}</p>
 
             <button 
-                @click="$emit('changeFavorito', title)" 
+                @click="emit('changeFavorito', title)" 
                 class="btn btn-outline-primary"
             >
                 Favorito
