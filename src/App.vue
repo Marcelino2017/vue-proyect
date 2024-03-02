@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import ButtonCounter from './components/ButtonCounter.vue'
 import BlogPost from './components/BlogPost.vue'
 
@@ -8,17 +9,24 @@ const posts = [
   { id: 3, title: 'Post 3' }
 ]
 
+const favorito = ref('')
+
+const changeFavorito = (title) => {
+  favorito.value = title
+}
+
 </script>
 
 <template>
 <div class="container" id="app">
     <h1>Vue 3</h1>
-    <h2>Mis post favoritos</h2>
-
     <br>
+    <h2>Mis post favoritos: {{ favorito }} </h2>
+
+    <!-- <br>
     <ButtonCounter />
     <button-counter />
-    <br>
+    <br> -->
 
     <BlogPost 
       v-for="post in posts" 
@@ -26,6 +34,7 @@ const posts = [
       :title="post.title" 
       :id="post.id" 
       :body="post.body"
+      @changeFavorito="changeFavorito"
     />
 
     <!-- <BlogPost 

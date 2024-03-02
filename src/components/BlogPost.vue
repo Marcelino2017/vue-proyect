@@ -19,7 +19,15 @@ defineProps({
             <h5 class="card-title">    
                 {{ id }} {{ title }}
             </h5>
-           <p>{{ body }}</p>
+
+            <p>{{ body }}</p>
+
+            <button 
+                @click="$emit('changeFavorito', title)" 
+                class="btn btn-outline-primary"
+            >
+                Favorito
+            </button>
         </div>
         
     </div>
