@@ -8,7 +8,8 @@ defineProps({
     body: {
         type: String,
         default: "Sin descripción"
-    }
+    },
+    //changeFavorito: Function
 })
 
 const emit = defineEmits(['changeFavorito'])
@@ -23,6 +24,13 @@ const emit = defineEmits(['changeFavorito'])
             </h5>
 
             <p>{{ body }}</p>
+
+            <!-- <button 
+                @click="changeFavorito(title)" 
+                class="btn btn-outline-primary"
+            >
+                Favorito
+            </button> -->
 
             <button 
                 @click="emit('changeFavorito', title)" 
