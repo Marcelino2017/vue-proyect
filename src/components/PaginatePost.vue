@@ -1,5 +1,10 @@
 <script setup>
 
+defineProps({
+    inicio: Number,
+    fin: Number,
+    maxLengthPosts: Number
+})
 const emit = defineEmits(['next', 'preview'])
 
 </script>
@@ -9,11 +14,13 @@ const emit = defineEmits(['next', 'preview'])
         <button 
             type="button" 
             class="btn btn-outline-primary"
-            @click="emit('preview')">Preview</button> 
+            @click="emit('preview')"
+            :disabled="inicio == 0">Preview {{inicio}}</button> 
 
         <button 
             type="button" 
             class="btn btn-outline-primary"
-            @click="emit('next')">Next</button>
+            @click="emit('next')"
+            :disabled="fin >= maxLengthPosts">Next {{ fin }} </button>
     </div>
 </template>
