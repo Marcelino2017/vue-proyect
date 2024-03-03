@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import ButtonCounter from './components/ButtonCounter.vue'
 import BlogPost from './components/BlogPost.vue'
 import PaginatePost from './components/PaginatePost.vue'
@@ -29,16 +29,20 @@ const preview = () => {
   console.log(inicio.value, fin.value);
 }
 
-fetch('https://jsonplaceholder.typicode.com/posts')
-  .then(response => response.json())
-  .then(data => {
-    posts.value = data
-    console.log(posts.value.length)
-  })
-  .catch(error => console.error(error))
-  .finally(() => {
+onMounted(async () => {
+  fetchDate()
+})
+
+const fetchDate = async () => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    posts.value = await response.json()
+  } catch (error) {
+    console.log(error);
+  } finally {
     loading.value = false
-  })
+  }
+}
 
 const maxLengthPosts = computed(() => posts.value.length)
 </script>
